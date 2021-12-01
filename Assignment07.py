@@ -3,8 +3,8 @@
 # Description: Write a script that demonstrates pickling
 #              and error handling in Python.
 # ELeggett,11.29.2021,Created script
-# ELeggett,11.30.2021,Scrapped and wewrote script,
-#                     cleaned up code
+# ELeggett,11.30.2021,Scrapped and rewrote script,
+#                     cleaned up formatting and flow
 # ---------------------------------------------------------------------------- #
 
 # PICKLING DEMO -------------------------------------------------------------- #
