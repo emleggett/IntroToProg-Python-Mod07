@@ -121,3 +121,8 @@ For my first attempt at this assignment, I tried to take last week’s assignmen
 
 ## Resources
 
+Han, Na Rae, Pickling, accessed 29 November 2021, <https://sites.pitt.edu/~naraehan/python3/pickling.html>.
+
+Kalia, Manu, 2019, Don’t Fear the Pickle: Using pickle.dump and pickle.load, accessed 30 November 2021,  <https://betterprogramming.pub/dont-fear-the-pickle-using-pickle-dump-and-pickle-load-5212f23dbbce>.
+
+Python, pickle — Python object serialization, accessed 29 November 2021, <https://docs.python.org/3/library/pickle.html>.
