@@ -18,8 +18,8 @@ import pickle
 From there, the script uses two basic input statements to collect a contact name and contact number from the user. To keep things easy and ensure I was working with disparate data types, I manually defined these values as str and int, respectively, when collecting them:
 
 ```
-contact_name = str(input("Enter a name to add to contact list: "))
-contact_number = int(input("Enter a phone number for your contact (numbers only, please!): “))
+contact_name = str(input("Enter the name of the contact you'd like to add: "))
+contact_number = int(input("Enter a phone number for your contact (numbers only, please!): "))
 ```
 
 Once these data points have been collected, they are organized into a list file, then a dictionary object, and then saved back to the Assignment07.dat binary file (or pickled) using the pickle.dump() function:
@@ -53,13 +53,13 @@ try:
     new_list = contact_name + contact_number
     print(new_list)
 except TypeError as e:
-    print("\n" + "Can't concatenate numeric and string data! Error report: " + "\n")
-    print(e, e.__doc__, e.__str__,type(e), sep = "\n")
+    print("\n" + "Error: Can't concatenate numeric and string data. Details: " + "\n")
+    print(e, e.__doc__, e.__str__, type(e), sep = "\n")
 except FileNotFoundError as e:
-    print("\n" + "Assignment07.dat file must exist prior to running this script! Error report: "+ "\n")
-    print(e, e.__doc__, e.__str__, type(e), sep="\n")
+    print("\n" + "Error: Assignment07.dat file must exist prior to running this script. Details: "+ "\n")
+    print(e, e.__doc__, e.__str__, type(e), sep = "\n")
 except Exception as e:
-    print("\n" + "An unspecified error occurred! Error report: " + "\n")
+    print("\n" + "Error: An unspecified error occurred. Details: " + "\n")
     print(e, e.__doc__, e.__str__, type(e), sep="\n")
 ```
 
