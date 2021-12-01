@@ -68,50 +68,42 @@ Finally, to weave these two concepts together I re-hashed the pickling demonstra
 
 ```
 try:
-    contact_name = input("Enter a name to add to contact list: ")
+    contact_name = input("Enter the name of the contact you'd like to add: ")
     if contact_name.isnumeric():
         raise AlphaError()
     elif len(contact_name)==0:
         raise EntryError()
+    # Step 3: Second try-catch block - gather number and proceed with pickling/unpickling if no exceptions
+    try:
+        contact_number = input("Enter a phone number for your contact (numbers only, please!): ")
+        if contact_number.isalpha():
+            raise NumError()
+        elif len(contact_number) != 10:
+            raise PhError()
+        else:
+            contact_list = [contact_name, contact_number]
+            print("\n" + "Valid entry! Preparing data to save to Assignment07.dat...")
+            contact_dict = [{"Name": contact_name, "Number": contact_number}]
+            print("\n" + "Opening Assignment07.dat and pickling...")
+            myfile = open("Assignment07.dat", "wb")
+            pickle.dump(contact_dict, myfile)
+            myfile.close()
+            print("\n" + "Assignment07.dat successfully saved. Closing file...")
+            myfile = open("Assignment07.dat", "rb")
+            mydata = pickle.load(myfile)
+            print("\n" + "Assignment07.dat re-opened and unpickled. Here's your data:")
+            print(mydata)
+            myfile.close()
+            print("\n" + "Assignment07.dat closed. Thank you for using my tutorial. Goodbye!")
+    except Exception as e:
+        print("\n" + "Error: " + "\n")
+        print(e)
 except Exception as e:
-    print("\n" + "Error report: " + "\n")
-    print(e, e.__doc__, e.__str__, type(e), sep="\n")
-try:
-    contact_number = input("Enter a phone number for your contact (numbers only, please!): ")
-    if contact_number.isalpha():
-        raise NumError()
-    elif len(contact_number)!=10:
-        raise PhError()
-    else:
-        contact_list = [contact_name, contact_number]
-        contact_dict = [{"Name": contact_name, "Number": contact_number}]
-        myfile = open("Assignment07.dat", "wb")
-        pickle.dump(contact_dict, myfile)
-        myfile.close()
-        myfile = open("Assignment07.dat", "rb")
-        mydata = pickle.load(myfile)
-        print(mydata)
-        myfile.close()
-except Exception as e:
-    print("\n" + "Error report: " + "\n")
-    print(e, e.__doc__, e.__str__, type(e), sep="\n")
+    print("\n" + "Error: " + "\n")
+    print(e)
 ```
 
 As a means of preventing the user from inputting undesirable data (i.e., a string in the place of a numeric field, or vice versa), I even called in a few custom exception classes to be employed when specific conditions were met. For example, if the user inputs an integer into the contact_name field (or: if contact_name.isnumeric()), a custom-defined AlphaError message will be raised prompting the user to input only alphanumeric characters into the name field.
-
-
-In the case of saving the user’s to do list data back to the .txt file, however, I decided to add a warning message alerting the user that the file was in “write” mode, which would overwrite their current list data:
-
-```
-elif choice_str == "3":  # Choice 3: Save current To Do list data to file.
-    save_choice = input("Save current list to file? This can't be undone! (y/n): ")
-    if save_choice.lower() == "y":
-        Processor.write_data_to_file(file_name_str, table_lst)
-        input("Data saved to file. Press Enter to return to program.")
-    else:  # Returns user to main menu if 'y' is not inputted.
-        input("Data not saved to file. Press Enter to return to program.")
-    continue
-```
 
 ## Code Validation
 To make the script run more like a “tutorial”, I ran back through it to add print and input statements to space out functionality and pause the script between demonstrations. Depending on user input, the script can throw a number of custom exceptions; however, for the sake of validation I included screenshots of successful demonstration completion in both PyCharm and Terminal, as well as a full picture of the script flowing in the IDE, in my final report. Please see the attached PDF document for images of the script running.
