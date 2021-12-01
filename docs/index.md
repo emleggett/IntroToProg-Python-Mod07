@@ -8,7 +8,7 @@ Describe the steps taken to create the Python script attached to this assignment
 ## Introduction
 Though we were briefly introduced to the subject in previous modules, this week we covered error handling in much greater detail - from understanding Python’s built-in error handling functionality to printing and even defining and calling our own error messages. In addition to error handling, we also learned how to save and read data to and from binary files - a process referred to as pickling (and, respectively, unpicking) in the Python language. Finally, after performing some additional research we were asked to demonstrate these features in a tutorial-type script of our own choosing. 
 
-## DEMO 1: PICKLING AND UNPICKLING
+## Demo 1: Picking and Unpickling
 Our first task was to pickle and unpickle any data of our choosing in a basic demo script. After attending tonight’s lecture, I greatly simplified my script to only handle two types of data: one string and one integer, comprising a “contact list” file very similar to our previous inventory file. I had to start, though, by importing the pickle module:
 
 ```
@@ -39,7 +39,7 @@ print(mydata)
 myfile.close()
 ```
 
-## DEMO 2: STRUCTURED ERROR HANDLING
+## Demo 2: Structured Error Handling
 Next, we were tasked with demonstrating structured error handling. To do so, I used the integer and string data defined in the previous demonstration to try to construct a (purposefully invalid) data type via concatenation. In order to better illustrate the difference between custom and default error handling, I had my first try-except block print the text of the Python-generated error message as well as its type when the new_list data point I was trying to create inevitably failed to complete, but little else:
 
 ```
@@ -63,7 +63,7 @@ except Exception as e:
     print(e, e.__doc__, e.__str__, type(e), sep="\n")
 ```
 
-## DEMO 3: CUSTOM EXCEPTION CLASSES 
+## Demo 1: Custom Exception Classes
 Finally, to weave these two concepts together I re-hashed the pickling demonstration with some added functionality: first, to allow for more expressive errors, I allowed the user to input whatever they liked as a name and contact number; and secondly, to ensure the user did not enter any incorrect data, I had the try-except blocks prevent any data from being picked or unpicked unless it met my basic criteria. Which is to say, in order for the user to get through to saving and reading their binary file, they would have to input a string for a name and a 10-digit phone number as integers - no exceptions. To accomplish this, I nested the pickling and unpicking functions within their own try-except block, preceded by a few others to restrict the user’s inputs:
 
 ```
@@ -113,8 +113,11 @@ elif choice_str == "3":  # Choice 3: Save current To Do list data to file.
     continue
 ```
 
-## CODE VALIDATION
+## Code Validation
 To make the script run more like a “tutorial”, I ran back through it to add print and input statements to space out functionality and pause the script between demonstrations. Depending on user input, the script can throw a number of custom exceptions; however, for the sake of validation I included screenshots of successful demonstration completion in both PyCharm and Terminal, as well as a full picture of the script flowing in the IDE, in my final report. Please see the attached PDF document for images of the script running.
 
-## LESSONS LEARNED
+## Lessons Learned
 For my first attempt at this assignment, I tried to take last week’s assignment and mold it into a demonstration of pickling/unpickling and structured error handling; however, that proved to be a bit too complicated, especially when it came to comparing entries against the binary list to find a match for removal. However, further clarification from tonight’s lecture made me realize we were only meant to demonstrate these features, not necessarily create a fully-functional, interactive script. To minimize confusion with half-working functions and a multitude of already-defined variables, I started over, but was able to debug with much greater speed having unsuccessfully fought to force these features into last week’s assignment already.
+
+## Resources
+
